@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Psec — Direction A, The Hall (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Albert+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lime:#F5F0E6;--white:#FFFDF8;--timber:#1D1A17;--soft:#5A534B;--plum:#4B1D6B;--brick:#9E4024;--rule:#D9D0BF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--lime);color:var(--timber);font:400 1.0625rem/1.6 "Albert Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:"Young Serif",Georgia,serif;font-weight:400;line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+/* timber framing: the hall's own pattern, used as a rule between rooms */
+.frame{height:26px;background:
+  repeating-linear-gradient(60deg,var(--timber) 0 9px,transparent 9px 27px),
+  var(--white);border-top:5px solid var(--timber);border-bottom:5px solid var(--timber)}
+.frame.flip{background:repeating-linear-gradient(-60deg,var(--timber) 0 9px,transparent 9px 27px),var(--white)}
+
+header{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 0}
+.mark{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark svg{width:44px;height:44px;flex:none}
+.mark b{font:400 1.7rem/1 "Young Serif",serif;letter-spacing:-.01em}
+.mark small{display:block;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-top:3px}
+nav{display:flex;gap:26px;align-items:center;font-weight:500;font-size:.98rem}
+nav a{text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s}
+nav a:hover{border-color:var(--brick)}
+.ring{background:var(--timber);color:var(--white);padding:11px 18px;border-radius:3px;text-decoration:none;font-weight:600;white-space:nowrap;transition:background .2s}
+.ring:hover{background:var(--plum)}
+nav a.ring{padding:11px 18px;border:0}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(28px,4vw,60px);align-items:center;padding:26px 0 64px}
+.hero h1{font-size:clamp(2.3rem,4.5vw,3.9rem)}
+.hero p{margin-top:22px;max-width:46ch;color:var(--soft);font-size:1.12rem}
+.acts{display:flex;flex-wrap:wrap;gap:14px 22px;align-items:center;margin-top:30px}
+.acts .ring{font-size:1.08rem;padding:15px 24px}
+.acts a.more{font-weight:600}
+.acts a.more:hover{color:var(--brick)}
+figure{margin:0}
+.hall{position:relative}
+.hall img{display:block;width:100%;aspect-ratio:5/4;object-fit:cover;object-position:60% 60%;border:6px solid var(--timber);background:#8fa9c9}
+.hall .frame{position:absolute;left:-22px;bottom:34px;width:46%;box-shadow:0 14px 26px -16px rgba(29,26,23,.6)}
+.hall figcaption{font-size:.86rem;color:var(--soft);margin-top:10px;text-align:right}
+
+.people{background:var(--white);padding:76px 0 84px}
+.people .wrap{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(28px,5vw,80px)}
+.people h2{font-size:clamp(1.9rem,3.2vw,2.8rem)}
+.people .lead{margin-top:18px;color:var(--soft);max-width:38ch}
+.who{border-top:2px solid var(--timber)}
+.who li{list-style:none;padding:26px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 24px;align-items:end}
+.who{margin:0;padding:0}
+.who h3{font-size:clamp(1.7rem,2.6vw,2.3rem)}
+.who .role{color:var(--soft);margin-top:4px}
+.who .nums{text-align:right;font-weight:500;line-height:1.75}
+.who .nums a{text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color .2s,color .2s}
+.who .nums a:hover{color:var(--brick);border-color:var(--brick)}
+.who .nums span{color:var(--soft);font-weight:400;font-size:.9rem;margin-right:6px}
+
+.work{padding:84px 0 40px}
+.work>h2{font-size:clamp(2rem,3.6vw,3.1rem);max-width:20ch}
+.work>p{margin-top:16px;color:var(--soft);max-width:60ch}
+.room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:clamp(24px,5vw,80px);padding:48px 0;border-top:2px solid var(--timber);margin-top:48px}
+.room+.room{margin-top:0}
+.room h3{font-size:clamp(1.7rem,2.8vw,2.4rem)}
+.room .say{margin-top:14px;color:var(--soft)}
+.room ul{margin:0;padding:0;list-style:none;columns:2;column-gap:32px}
+.room li{padding:9px 0;border-bottom:1px solid var(--rule);break-inside:avoid}
+.room dl{margin:0}
+.room dt{font-weight:600;margin-top:20px}
+.room dt:first-child{margin-top:0}
+.room dd{margin:4px 0 0;color:var(--soft)}
+.also{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);padding:40px 0 64px;border-top:1px solid var(--rule)}
+.also h3{font-size:1.5rem}
+.also p{margin-top:10px;color:var(--soft)}
+
+.claim{background:var(--plum);color:#FBF6FF;padding:80px 0}
+.claim blockquote{margin:0;font:400 clamp(1.8rem,3.8vw,3.2rem)/1.15 "Young Serif",serif;max-width:22ch;text-wrap:balance}
+.claim .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:clamp(28px,5vw,80px);align-items:end}
+.claim p{color:#E3D3F0}
+.claim p+p{margin-top:14px}
+.claim cite{display:block;font-style:normal;font-size:.9rem;color:#D5BFE6;margin-top:22px}
+
+.clients{padding:84px 0}
+.clients h2{font-size:clamp(1.9rem,3.2vw,2.8rem);max-width:24ch}
+.roll{margin-top:30px;font:400 clamp(1.2rem,2vw,1.6rem)/1.5 "Young Serif",serif;color:var(--timber)}
+.roll i{font-style:normal;color:var(--brick);margin:0 .35em}
+.types{margin:34px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
+.types li{border:1.5px solid var(--timber);padding:7px 14px;border-radius:3px;font-size:.95rem;background:var(--white)}
+.pillars{margin-top:34px;color:var(--soft);max-width:66ch}
+
+.join{background:var(--white);padding:56px 0}
+.join .wrap{display:flex;flex-wrap:wrap;gap:20px 48px;align-items:center;justify-content:space-between}
+.join h2{font-size:clamp(1.5rem,2.4vw,2rem);max-width:24ch}
+.join p{color:var(--soft);max-width:48ch}
+.join a{font-weight:600}
+.join a:hover{color:var(--brick)}
+
+footer{background:var(--timber);color:#EFE8DA;padding:70px 0 40px}
+footer .wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,80px)}
+footer h2{font-size:clamp(2rem,3.8vw,3.2rem)}
+footer .big{display:inline-block;margin-top:22px;font:400 clamp(2rem,4.4vw,3.4rem)/1 "Young Serif",serif;text-decoration:none;border-bottom:3px solid var(--brick);padding-bottom:6px;transition:color .2s}
+footer .big:hover{color:#F3B79F}
+footer address{font-style:normal;line-height:1.8;color:#CFC6B5}
+footer address b{color:#EFE8DA;font-weight:600}
+footer address a:hover{color:#F3B79F}
+footer .fine{grid-column:1/-1;border-top:1px solid #4A443D;padding-top:20px;font-size:.84rem;color:#B5AC9B}
+
+@media (max-width:900px){
+  nav a:not(.ring){display:none}
+  .hero,.people .wrap,.room,.claim .wrap,footer .wrap{grid-template-columns:1fr}
+  .hero{padding-top:8px}
+  .hall .frame{left:-28px;width:60%}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  .mark small{display:none}
+  .who li{grid-template-columns:1fr}
+  .who .nums{text-align:left}
+  .room ul{columns:1}
+  .also{grid-template-columns:1fr}
+  .ring{padding:10px 14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<div style="background:#17201B;color:#fff;font:500 14px/1.4 system-ui,sans-serif;padding:9px 20px;position:relative;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;z-index:2147483000"><span style="display:inline-flex;align-items:center;gap:8px"><svg style="height:12px;width:auto;color:#fff" viewBox="0 0 487.5 208.5" role="img" aria-label="Pete Owen Design logo"><path fill="currentColor" d="M487.5,10.6h-41.2v15.5c-15.3-10.6-33.9-16.8-53.8-16.8-30.1,0-57,14.1-74.4,36-17.4-21.9-44.3-36-74.4-36s-57,14.1-74.4,36c-17.4-21.9-44.3-36-74.4-36C44.8,9.4,3.8,48,0,96.9h-.3v100.3h41.2v-14.5c15.3,10.6,33.9,16.8,53.8,16.8,30.1,0,57-14.1,74.4-36,17.4,21.9,44.3,36,74.4,36s57-14.1,74.4-36c17.4,21.9,44.3,36,74.4,36,52.4,0,95.1-42.6,95.1-95.1s0-1.3,0-1.9h0V10.6h0ZM94.6,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM243.5,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8ZM392.4,158.2c-29.7,0-53.8-24.2-53.8-53.8s24.2-53.8,53.8-53.8,53.8,24.2,53.8,53.8-24.2,53.8-53.8,53.8Z"/></svg> Design idea by Pete Owen Design. Not the live Psec website.</span><a href="../index.html" style="color:#fff;font-weight:700">Back to the start</a></div>
+<!--
+THESIS: Psec is a small senior firm in a Cheshire hall; the place and the two named people are the brand.
+OWN-WORLD: Winnington Hall's black-and-white timber framing, limewash, brick chimneys; their purple kept as plum.
+STORY: where we are, who answers the phone, the two things we do, the savings claim, who we have worked for, ring us.
+FIRST VIEWPORT: plain statement of what Psec is, the phone number, and the hall photograph in a timber frame.
+-->
+<div class="wrap">
+  <header>
+    <a class="mark" href="#top" aria-label="Psec home">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M3 41V20L22 4l19 16v21z" fill="#FFFDF8" stroke="#1D1A17" stroke-width="3.4" stroke-linejoin="miter"/><path d="M3 21h38M22 4v37M12 21l10 20M32 21L22 41" stroke="#1D1A17" stroke-width="2.6" fill="none"/></svg>
+      <span><b>Psec</b><small>Northwich · since 1989</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#interim">Interim managers</a>
+      <a href="#savings">Savings</a>
+      <a href="#clients">Clients</a>
+      <a href="#careers">Careers</a>
+      <a class="ring" href="tel:01606782049">01606 782049</a>
+    </nav>
+  </header>
+
+  <main id="top">
+  <section class="hero">
+    <div>
+      <h1>Experienced hands for public services, from a hall in Northwich since 1989.</h1>
+      <p>Psec is a specialist public and ‘not-for-profit’ sector consultancy and interim management service. We lend senior managers to the NHS and local government, and we find savings.</p>
+      <div class="acts">
+        <a class="ring" href="tel:01606782049">Ring 01606 782049</a>
+        <a class="more" href="#people">Who you will speak to</a>
+      </div>
+    </div>
+    <figure class="hall">
+      <img src="img/assets-images-WinningtonHall_0997.jpg" alt="Winnington Hall, a black-and-white timber-framed hall with brick chimneys under a blue sky">
+      <div class="frame" aria-hidden="true"></div>
+      <figcaption>Winnington Hall, Northwich. Our offices.</figcaption>
+    </figure>
+  </section>
+  </main>
+</div>
+
+<section class="people" id="people">
+  <div class="wrap">
+    <div>
+      <h2>Two names, two direct lines.</h2>
+      <p class="lead">For an informal discussion of your requirements, ring either of us. Behind us is a team of full-time consultants and a large network of associates.</p>
+    </div>
+    <ul class="who">
+      <li>
+        <div><h3>Gordon Carr</h3><p class="role">Chief Executive</p></div>
+        <p class="nums"><span>Office</span><a href="tel:01606782049">01606 782049</a><br><span>Mobile</span><a href="tel:07771537410">07771 537410</a><br><a href="mailto:Gordon.Carr@psec.co.uk">Gordon.Carr@psec.co.uk</a></p>
+      </li>
+      <li>
+        <div><h3>Nigel Crew</h3><p class="role">Senior Consultant</p></div>
+        <p class="nums"><span>Office</span><a href="tel:01606782049">01606 782049</a><br><span>Mobile</span><a href="tel:07771664984">07771 664984</a><br><a href="mailto:Nigel.Crew@psec.co.uk">Nigel.Crew@psec.co.uk</a></p>
+      </li>
+    </ul>
+  </div>
+</section>
+<div class="frame" aria-hidden="true"></div>
+
+<div class="wrap">
+  <section class="work">
+    <h2>Our services are built around two key areas.</h2>
+    <p>Our specialists work together as a team or separately, to meet your needs.</p>
+
+    <div class="room" id="interim">
+      <div>
+        <h3>Providing interim management</h3>
+        <p class="say">All our interim managers are trained and experienced, so they can immediately provide you with effective assistance from day one of any interim assignment. Short, medium and long term.</p>
+      </div>
+      <ul>
+        <li>Finance</li><li>Estates &amp; Facilities</li><li>Information and ICT</li><li>HR &amp; Organisational Development</li><li>Housing</li><li>Revenues &amp; Benefits</li><li>General Management</li><li>Healthcare management</li>
+      </ul>
+    </div>
+
+    <div class="room" id="savings">
+      <div>
+        <h3>Minimising clients’ revenue costs</h3>
+        <p class="say">We are happy to work on either a daily rate basis or on a contingency basis, earning a percentage of the annual savings we identify, entirely at our risk.</p>
+      </div>
+      <dl>
+        <dt>Modern Equivalent Assets: estate optimisation</dt>
+        <dd>Reduce the balance sheet valuation, PDC payable and depreciation, and business rates.</dd>
+        <dt>Duplicate creditor payments</dt>
+        <dd>Our software database identifies duplicate payments and enables root cause analysis to improve internal controls.</dd>
+        <dt>Incorrect salary and wages payments</dt>
+        <dd>Identified through the same IT-enabled service.</dd>
+        <dt>VAT consultancy</dt>
+        <dd>Reviewing capital schemes, such as PFI contracts, leases and land and building transactions, to maximise your capital VAT recovery.</dd>
+      </dl>
+    </div>
+
+    <div class="also">
+      <div><h3>Consultancy</h3><p>Organisational and efficiency reviews, business case development, shared services and joint working, costing, commissioning and support services for schools.</p></div>
+      <div><h3>Project &amp; change management</h3><p>Expertise and assurance for change management projects and business cases: mergers, service integration, financial recovery plans and final accounts.</p></div>
+    </div>
+  </section>
+</div>
+
+<section class="claim">
+  <div class="wrap">
+    <div>
+      <blockquote>“In the last 12 months we have saved our clients in excess of £10m.”</blockquote>
+      <cite>Psec, as stated on its current website</cite>
+    </div>
+    <div>
+      <p>Psec can help you deliver revenue savings quickly, effectively and painlessly, allowing you to reduce your fixed cost base.</p>
+      <p>We have extensive experience of dealing with the District Valuer and NHS Estates.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="clients" id="clients">
+    <h2>Some of the organisations we have worked for.</h2>
+    <p class="roll">Warrington Borough Council<i>/</i>Wrexham County Borough Council<i>/</i>Peterborough City Council<i>/</i>Flintshire County Council<i>/</i>North Lincolnshire Council<i>/</i>The Electoral Commission<i>/</i>Coventry &amp; Warwickshire Partnership Trust<i>/</i>Whipps Cross University NHS Trust<i>/</i>Hull &amp; East Yorkshire Hospitals NHS Trust<i>/</i>Shropshire CCG<i>/</i>the Isle of Man Government<i>/</i>the South African Government</p>
+    <ul class="types" aria-label="Types of client">
+      <li>NHS commissioners and providers</li><li>Other healthcare providers</li><li>Local authorities</li><li>Central government and agencies</li><li>Voluntary bodies, charities and social enterprises</li><li>Police authorities</li>
+    </ul>
+    <p class="pillars">We believe our strength as an organisation is based on four pillars: the depth of our consultant base, a flexible approach, national coverage, and outstanding value for money.</p>
+  </section>
+</div>
+
+<div class="frame flip" aria-hidden="true"></div>
+<section class="join" id="careers">
+  <div class="wrap">
+    <h2>Looking to become an interim or a consultant?</h2>
+    <p>Psec is always pleased to receive CVs from interested candidates. Even if you are part qualified, we would still be interested to hear from you. <a href="mailto:enquiries@psec.co.uk">enquiries@psec.co.uk</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <h2>Ring for an informal discussion of your requirements.</h2>
+      <a class="big" href="tel:01606782049">01606 782049</a>
+    </div>
+    <address>
+      <b>Psec</b><br>Winnington Hall, Northwich,<br>Cheshire. CW8 4DU<br><br>
+      <b>Gordon Carr</b> · <a href="tel:07771537410">07771 537410</a><br><a href="mailto:Gordon.Carr@psec.co.uk">Gordon.Carr@psec.co.uk</a><br>
+      <b>Nigel Crew</b> · <a href="tel:07771664984">07771 664984</a><br><a href="mailto:Nigel.Crew@psec.co.uk">Nigel.Crew@psec.co.uk</a>
+    </address>
+    <p class="fine">Concept design by Pete Owen Design. Not the live Psec website. Photograph from Psec’s current site, used as a stand-in.</p>
+  </div>
+</footer>
+</body>
+</html>
